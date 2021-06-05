@@ -1,2 +1,2 @@
 # Forum
-# Projeto de Programação Web com React
+# Projeto de Programação Web em JavaScript com React
