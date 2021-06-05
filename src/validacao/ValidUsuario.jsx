@@ -8,8 +8,8 @@ export const validarUsuario = (state) => {
       } = state;
 
 
-      if ( nick.trim().length > 100 ) {
-          formValidation.nick.push("O nick do usuario não pode ter mais do que 100 caracteres!");
+      if ( nick.trim().length > 10 ) {
+          formValidation.nick.push("O nick do usuario não pode ter mais do que 10 caracteres!");
           formValidation.validNick = true;
           toReturn = true;
       }
@@ -20,8 +20,8 @@ export const validarUsuario = (state) => {
         toReturn = true;
       }
 
-      if ( nick.trim().length < 10 ) {
-        formValidation.nick.push("O nick do usuario não pode ter menos do que 10 caracteres!");
+      if ( nick.trim().length < 4 ) {
+        formValidation.nick.push("O nick do usuario não pode ter menos do que 4 caracteres!");
         formValidation.validNick = true;
         toReturn = true;
       }

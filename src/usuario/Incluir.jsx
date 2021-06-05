@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { createUsuario } from "../service/UsuarioService";
+import { createUser } from "../service/UsuarioService";
 import { validarUsuario } from "../validacao/ValidUsuario";
 
 class IncluirUsuario extends React.Component {
@@ -56,7 +56,7 @@ class IncluirUsuario extends React.Component {
                 email: email,
             }
 
-            const resposta_servidor = await createUsuario(usuario);
+            const resposta_servidor = await createUser(usuario);
 
             this.setState({
                 state: this.initState()
@@ -70,10 +70,10 @@ class IncluirUsuario extends React.Component {
 
 
     render() {
-        //const { id } = this.props.match.params;
         const {
             nick,
             email,
+            formValidation,
         } = this.state;
 
         return (

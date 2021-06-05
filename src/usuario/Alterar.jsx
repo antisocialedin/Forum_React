@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { findUsuarioById, updateUsuario } from "../service/UsuarioService";
+import { findUserById, updateUser } from "../service/UsuarioService";
 
 class AlterarUsuario extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class AlterarUsuario extends React.Component {
     }
 
     async loadData(id) {
-        const resposta_servidor = await findUsuarioById(id);
+        const resposta_servidor = await findUserById(id);
         this.setState({
         id: resposta_servidor.usuario.id,
         nick: resposta_servidor.usuario.nick,
@@ -52,7 +52,7 @@ class AlterarUsuario extends React.Component {
             email: email,
         };
 
-        const resposta_servidor = await updateUsuario(usuario);
+        const resposta_servidor = await updateUser(usuario);
 
         this.setState(
             {
@@ -91,27 +91,9 @@ class AlterarUsuario extends React.Component {
                                             onChange={(e) => this.onChange(e)}
                                             id="nick"
                                             className="form-control "
-                                            className={formValidation.validNick === true ? "form-control is-invalid" : "form-control"}
                                         />
-                                        {
-                                            formValidation.validNick && (
-                                                <div className="invalid-feedback">
-                                                    {
-                                                        formValidation.nick.map((erro, index) => {
-                                                            return (
-                                                                <p key={index} style={{ margin: "0" }}>
-                                                                    <span>{erro}</span>
-                                                                </p>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            )
-                                        }
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="col-xs-12 col-sm-12 col-md-12">
                                     <div className="form-group">
                                         <label htmlFor="email" className="control-label">

@@ -1,6 +1,6 @@
 import http from '../util/banco';
 
-export const findAllUsuarios = async () => {
+export const findAllUsers = async () => {
     return (
         http.get('/usuario/listar')
             .then( res => {
@@ -9,9 +9,9 @@ export const findAllUsuarios = async () => {
     )
 }  
 
-export const findUsuarioById = async ( id ) => {
+export const findUserById = async ( id ) => {
     return (
-        http.get(`/usuario/alterar/${id}`)
+        http.get('/usuario/alterar/${id}')
             .then( res => { 
                 return res.data; 
             }).catch( error => {
@@ -20,7 +20,7 @@ export const findUsuarioById = async ( id ) => {
     )
 }
 
-export const createUsuario = async ( usuario ) => {
+export const createUser = async ( usuario ) => {
     return (
         http({
             method:'post',
@@ -36,11 +36,11 @@ export const createUsuario = async ( usuario ) => {
     )
 }
 
-export const updateUsuario = async ( usuario ) => {
+export const updateUser = async ( usuario ) => {
     return (
         http({
             method:'post',
-            url:`/usuario/update/${usuario.id}`,
+            url:'/usuario/update/${usuario.id}',
             data:usuario,
             headers:{
                 'Content-Type':'application/json'

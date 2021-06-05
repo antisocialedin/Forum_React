@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import { findAllusuarios } from "../service/UsuarioService";
+import { findAllUsers } from "../service/UsuarioService";
 
-class Listarusuario extends Component {
+class ListarUsuario extends Component {
   constructor() {
     super();
     this.state = this.initState();
@@ -15,7 +15,7 @@ class Listarusuario extends Component {
   });
 
   async componentDidMount() {
-    const usuarios = await findAllUsuarios();
+    const usuarios = await findAllUsers();
     this.setState({
       usuarios: usuarios.data,
       paginaInicio: usuarios.current_page,
@@ -24,7 +24,7 @@ class Listarusuario extends Component {
   }
 
   render() {
-    const { usuarios, pageSize, paginaAtual, paginaFim, totalCount } = this.state;
+    const { usuarios } = this.state;
     return (
         <div>
         <div className="container">
@@ -51,7 +51,7 @@ class Listarusuario extends Component {
                         <tr>
                           <td>Id</td>
                           <td>Nick</td>
-                          <td>E-mail</td>
+                          <td>Email</td>
                           </tr>
                   </thead>
                   <tbody>
@@ -60,7 +60,7 @@ class Listarusuario extends Component {
                       <td>{ usuario.id }</td>
                       <td>{ usuario.nick }</td>
                       <td>
-                        <Link className="btn btn-info btn-sm" to={`/usuario/alterar/${usuario.id}`}>
+                        <Link className="btn btn-info btn-sm" to={'/usuario/alterar/${usuario.id}'}>
                           <i className="fa fa-pencil"></i>
                         </Link>
                         <a className="btn btn-danger btn-sm" href="#">
@@ -85,4 +85,4 @@ class Listarusuario extends Component {
     );
   }
 }
-export default Listarusuario;
+export default ListarUsuario;
