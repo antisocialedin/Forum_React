@@ -46,6 +46,7 @@ class IncluirUsuario extends React.Component {
         e.preventDefault();
 
         if (this.validarDigitacaoUsuario() === false) {
+            
             const {
                 nick,
                 email,
@@ -113,12 +114,10 @@ class IncluirUsuario extends React.Component {
                                         }
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="col-xs-12 col-sm-12 col-md-12">
                                     <div className="form-group">
                                         <label htmlFor="email" className="control-label">
-                                            E-mail:
+                                            Email:
                                         </label>
                                         <input
                                             type="text"
@@ -135,10 +134,10 @@ class IncluirUsuario extends React.Component {
                                 <button type="submit" className="btn btn-primary btn-lg" title="Incluir novo Registro">
                                     Salvar Dados do Usuario
                                 </button>
-                                <Link to="/usuario/listar"  className="btn btn-secondary btn-lg ml-3" title="Cancelar a Inclusão">
+                                <Link to="/usuario/listar" className="btn btn-secondary btn-lg ml-3" title="Cancelar a Inclusão">
                                     Cancelar Inclusão do Usuario
                                 </Link>
-                            </div>    
+                            </div>
                         </form>
                     </div>
                 </div>

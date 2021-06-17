@@ -1,11 +1,18 @@
 import http from '../util/banco';
 
-export const findAllUsers = async () => {
+export const findAllUsers = async (paginaAtual,pageSize,dir,props,search) => {
     return (
-        http.get('/usuario/listar')
-            .then( res => {
+        http.get('/usuario/listar',{
+            params:{
+                paginaAtual,
+                pageSize,
+                dir,
+                props,
+                search
+            }, 
+         }).then( res => {
             return res.data;
-            })
+         })
     )
 }  
 
