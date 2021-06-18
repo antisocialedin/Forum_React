@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { findUserById, updateUser } from "../service/UsuarioService";
+import Cabecalho from "../components/Cabecalho";
+import Nav from "../components/Nav";
 
 class AlterarUsuario extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = this.initState();
@@ -74,10 +77,12 @@ class AlterarUsuario extends React.Component {
         } = this.state;
 
         return (
-            <div className="container pt-5">
+            <div className="container">
+            <Nav/>
+            <Cabecalho path="/usuario/listar" tituloPagina="Cadastro de Usuario" tituloPesquisa="Lista de Usuario"/>
                 <div className="tile">
                     <div className="tile-body">
-                        <form onSubmit={(e) => this.handleSubimitAutor(e)}>
+                        <form onSubmit={(e) => this.handleSubimitUser(e)}>
                             <div className="row">
                                 <div className="col-xs-12 col-sm-6 col-md-6">
                                     <div className="form-group">
